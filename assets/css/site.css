@@ -366,8 +366,8 @@ html.dark .theme-toggle .sun  { display: none; }
 .filter-label {
   flex-shrink: 0;
   width: 62px;
-  font-family: var(--font-mono);
-  font-size: 10.5px;
+  font-family: var(--font-sans);
+  font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -379,7 +379,7 @@ html.dark .theme-toggle .sun  { display: none; }
   align-items: center;
   gap: 7px;
   padding: 5px 11px;
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 12px;
   font-weight: 500;
   color: var(--ink-soft);
@@ -413,12 +413,12 @@ html.dark .theme-toggle .sun  { display: none; }
   margin-left: auto;
 }
 .filter-summary-text {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 12px;
   color: var(--ink-mute);
 }
 .filter-clear {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 12px;
   color: var(--ink-soft);
   background: none;
@@ -448,8 +448,8 @@ html.dark .theme-toggle .sun  { display: none; }
   margin-bottom: 8px;
 }
 .pub-header .pub-year {
-  font-family: var(--font-mono);
-  font-size: 11px;
+  font-family: var(--font-sans);
+  font-size: 12px;
   font-weight: 600;
   color: var(--ink-soft);
   padding: 2px 9px;
@@ -457,10 +457,9 @@ html.dark .theme-toggle .sun  { display: none; }
   border: 1px solid var(--rule);
 }
 .pub-cat {
-  font-family: var(--font-mono);
-  font-size: 11px;
+  font-family: var(--font-sans);
+  font-size: 12px;
   font-weight: 600;
-  letter-spacing: 0.02em;
   padding: 2px 9px;
   border-radius: 4px;
 }
@@ -472,8 +471,8 @@ html.dark .cat-published  { background: #0E2A2B; color: var(--accent); }
 html.dark .cat-revision   { background: #3A2E14; color: #E0C77A; }
 html.dark .cat-conference { background: #16233B; color: #9DBCF0; }
 .pub-note {
-  font-family: var(--font-mono);
-  font-size: 11px;
+  font-family: var(--font-sans);
+  font-size: 12px;
   font-weight: 500;
   color: var(--ink-soft);
   padding: 2px 9px;
@@ -513,7 +512,7 @@ html.dark .cat-conference { background: #16233B; color: #9DBCF0; }
   align-items: center;
   gap: 4px;
   padding: 5px 12px;
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 12px;
   font-weight: 600;
   border-radius: 4px;
