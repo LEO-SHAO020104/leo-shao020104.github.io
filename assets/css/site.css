@@ -162,7 +162,6 @@ html.dark .theme-toggle .sun  { display: none; }
   .nav-tools { padding: 0 14px; gap: 10px; }
 }
 @media (max-width: 720px) {
-  .nav-tab[data-target="awards"] { display: none; }
   .nav-tab { padding: 0 14px; font-size: 13px; }
 }
 @media (max-width: 540px) {
@@ -192,21 +191,11 @@ html.dark .theme-toggle .sun  { display: none; }
   border-bottom: 3px solid var(--accent);
   display: inline-block;
 }
-.section-lead {
-  margin: 24px 0 36px 0;
-  font-size: 14px;
-  color: var(--ink-soft);
-}
-.section-foot {
-  margin-top: 36px;
-  font-size: 13.5px;
-  color: var(--ink-soft);
-}
 
 /* ---------- About ---------- */
 .about-grid {
   display: grid;
-  grid-template-columns: 260px 1fr;
+  grid-template-columns: 340px 1fr;
   gap: 56px;
   align-items: start;
   margin-top: 44px;
@@ -405,45 +394,6 @@ html.dark .tag.status.published { background: var(--accent-pale); color: var(--a
 .tag.badge.q2 { border-color: var(--rule); color: var(--ink-soft); }
 .tag.link { border-color: var(--rule); color: var(--ink-soft); }
 .tag.link:hover { border-color: var(--accent); color: var(--accent); }
-
-/* ---------- Awards ---------- */
-.awards-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  margin-top: 40px;
-}
-@media (max-width: 720px) {
-  .awards-grid { grid-template-columns: 1fr; gap: 28px; margin-top: 28px; }
-}
-.awards-col h4 {
-  font-size: 11.5px;
-  font-family: var(--font-mono);
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--ink-mute);
-  margin: 0 0 14px 0;
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--rule);
-}
-.awards-col ul { list-style: none; margin: 0; padding: 0; }
-.awards-col li {
-  padding: 7px 0;
-  font-size: 13.5px;
-  color: var(--ink-soft);
-  line-height: 1.55;
-  position: relative;
-  padding-left: 14px;
-}
-.awards-col li::before {
-  content: "·";
-  position: absolute;
-  left: 0; top: 6px;
-  color: var(--accent);
-  font-weight: 700;
-}
-.awards-col li strong { color: var(--ink); font-weight: 600; }
 
 /* ---------- Affiliations strip ---------- */
 #funders {
