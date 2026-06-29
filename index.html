@@ -214,20 +214,24 @@
             <a class="tag link" href="https://doi.org/10.1016/j.swevo.2026.102392" target="_blank" rel="noopener">DOI ↗</a>
           </div>
 
-          <details class="pub-extra">
+          <details class="pub-extra" open>
             <summary>Figures</summary>
             <div class="pub-figures">
               <figure class="pub-figure">
-                <img src="assets/images/Image_20260629015012_336_560.png" alt="Fig. 1 — Layout of CHFJS" loading="lazy" />
+                <img src="assets/images/fig1.jpg" alt="Fig. 1 — Layout of CHFJS" loading="lazy" />
                 <figcaption>Fig. 1 — Layout of the collaborative heterogeneous flexible job shop (CHFJS): a collaborative unit (worker/robot) loads and positions each job before the machine processes it independently; every operation requires two collaborative units.</figcaption>
               </figure>
               <figure class="pub-figure">
-                <img src="assets/images/Image_20260629015041_337_560.png" alt="Fig. 2 — GFLE framework" loading="lazy" />
+                <img src="assets/images/fig2.jpg" alt="Fig. 2 — GFLE framework" loading="lazy" />
                 <figcaption>Fig. 2 — Global feedback learning evolutionary framework (GFLE): a closed loop of region-based initialization, global search, critical-path local search, and environmental selection, where regional-ancestry and operator-performance feedback steer each generation toward the Pareto front.</figcaption>
               </figure>
               <figure class="pub-figure">
-                <img src="assets/images/Image_20260629015124_338_560.png" alt="Figs. 5–6 — Critical-path analysis and N1 structure" loading="lazy" />
-                <figcaption>Figs. 5–6 — Hierarchical critical-path analysis: the Gantt schedule is mapped to a modular disjunctive graph (including collaborative units) to extract critical paths and blocks for local search, with the N1 neighbourhood structure for moving critical operations shown alongside.</figcaption>
+                <img src="assets/images/fig5.jpg" alt="Fig. 5 — Critical path analysis procedure" loading="lazy" />
+                <figcaption>Fig. 5 — Hierarchical critical-path analysis: the Gantt schedule is mapped to a modular disjunctive graph (including collaborative units); classical critical-path analysis then extracts critical paths and blocks (consecutive nodes on the same machine) to focus local search.</figcaption>
+              </figure>
+              <figure class="pub-figure">
+                <img src="assets/images/fig6.jpg" alt="Fig. 6 — Example of the N1 structure" loading="lazy" />
+                <figcaption>Fig. 6 — Example of the N1 neighbourhood structure: relocating a critical operation along the critical path to generate neighbouring schedules during local search.</figcaption>
               </figure>
             </div>
           </details>
@@ -364,6 +368,11 @@
     </p>
   </div>
 </footer>
+
+<!-- Lightbox overlay for figure zoom -->
+<div id="lightbox" class="lightbox" aria-hidden="true">
+  <img class="lightbox-img" src="" alt="" />
+</div>
 
 <script src="assets/js/main.js" defer></script>
 </body>

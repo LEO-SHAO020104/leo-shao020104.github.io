@@ -433,6 +433,31 @@ html.dark .tag.status.published { background: var(--accent-pale); color: var(--a
   border: 1px solid var(--rule);
   border-radius: 6px;
   background: var(--bg-tint);
+  cursor: zoom-in;
+  transition: border-color .15s ease;
+}
+.pub-figure img:hover { border-color: var(--accent); }
+
+/* ---------- Lightbox (figure zoom) ---------- */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.85);
+  cursor: zoom-out;
+}
+.lightbox.open { display: flex; }
+.lightbox-img {
+  max-width: 95vw;
+  max-height: 92vh;
+  width: auto;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.5);
 }
 .pub-figure figcaption {
   margin-top: 8px;
