@@ -242,6 +242,12 @@ html.dark .theme-toggle .sun  { display: none; }
   margin: 0 0 12px 0;
   line-height: 1.15;
 }
+.about-bio h2 .name-cn {
+  margin-left: 8px;
+  font-size: 0.72em;
+  font-weight: 500;
+  color: var(--ink-soft);
+}
 .about-bio .subtitle {
   margin: 0 0 26px 0;
   font-size: 15px;
