@@ -301,6 +301,36 @@ html.dark .theme-toggle .sun  { display: none; }
   color: var(--accent);
 }
 
+/* ---------- Skills list ---------- */
+.skills-list {
+  margin: 22px 0 0;
+  display: grid;
+  gap: 8px;
+}
+.skills-list > div {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 12px;
+}
+.skills-list dt {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  padding-top: 2px;
+}
+.skills-list dd {
+  margin: 0;
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+@media (max-width: 540px) {
+  .skills-list > div { grid-template-columns: 1fr; gap: 2px; }
+}
+
 /* ---------- Research interests ---------- */
 .interests {
   display: grid;
