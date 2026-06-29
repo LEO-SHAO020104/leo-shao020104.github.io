@@ -504,7 +504,7 @@ html.dark .cat-conference { background: #16233B; color: #9DBCF0; }
   padding: 5px 12px;
   font-family: var(--font-mono);
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 600;
   border-radius: 4px;
   border: 1px solid var(--rule);
   color: var(--ink-soft);
@@ -512,7 +512,29 @@ html.dark .cat-conference { background: #16233B; color: #9DBCF0; }
   transition: all .15s ease;
 }
 a.pub-btn:hover { border-color: var(--accent); color: var(--accent); }
-.pub-btn--todo { border-style: dashed; color: var(--ink-mute); cursor: default; }
+
+/* Coloured by type — eye-catching */
+.pub-btn--view {
+  color: var(--accent-dark);
+  background: var(--accent-pale);
+  border-color: var(--accent-light);
+}
+.pub-btn--view:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+.pub-btn--pdf {
+  color: #B23B2E;
+  background: #FCEDEB;
+  border-color: #E6BEB7;
+}
+.pub-btn--pdf:hover { background: #C0392B; border-color: #C0392B; color: #fff; }
+.pub-btn--code {
+  color: #2C7A44;
+  background: #E9F6EC;
+  border-color: #C2E3CB;
+}
+.pub-btn--code:hover { background: #2E9E48; border-color: #2E9E48; color: #fff; }
+html.dark .pub-btn--view { background: #0E2A2B; border-color: #1C4A4A; color: var(--accent); }
+html.dark .pub-btn--pdf  { background: #3A1A16; border-color: #5A2A24; color: #E8897E; }
+html.dark .pub-btn--code { background: #15301C; border-color: #2A4A33; color: #8FD3A1; }
 .pub-empty { margin-top: 24px; font-size: 14px; color: var(--ink-mute); }
 
 /* Expandable figures (ResearchGate-style) */
