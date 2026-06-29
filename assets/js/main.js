@@ -73,6 +73,16 @@
     Object.values(sectionMap).forEach(function (sec) { io.observe(sec); });
   }
 
+  /* ─── Home tab: scroll to top, clean URL (no #hash) ─ */
+  var homeTab = document.querySelector('.nav-tab[data-target="about"]');
+  if (homeTab) {
+    homeTab.addEventListener('click', function (e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      try { history.replaceState(null, '', location.pathname + location.search); } catch (err) {}
+    });
+  }
+
   /* ─── Lightbox: click a figure to view full-screen ─ */
   var lb = document.getElementById('lightbox');
   if (lb) {

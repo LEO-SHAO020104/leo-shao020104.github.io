@@ -337,23 +337,26 @@ html.dark .theme-toggle .sun  { display: none; }
 }
 
 /* ---------- Publications ---------- */
-.pubs { list-style: none; margin: 28px 0 0; padding: 0; }
-.pub {
-  display: grid;
-  grid-template-columns: 64px 1fr;
-  gap: 24px;
-  padding: 22px 0;
-  border-top: 1px solid var(--rule);
-}
-.pub:first-child { border-top: none; padding-top: 8px; }
-.pub-year {
+.pub-group { margin-top: 40px; }
+.pub-group:first-of-type { margin-top: 28px; }
+.pub-group-title {
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 500;
-  color: var(--ink-mute);
-  padding-top: 3px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--rule);
 }
-.pub h3 {
+.pubs { list-style: none; margin: 0; padding: 0; }
+.pub {
+  padding: 20px 0;
+  border-top: 1px solid var(--rule-soft);
+}
+.pub:first-child { border-top: none; }
+.pub-title {
   font-size: 16px;
   font-weight: 600;
   line-height: 1.45;
@@ -386,10 +389,6 @@ html.dark .theme-toggle .sun  { display: none; }
   border: 1px solid var(--rule);
   color: var(--ink-soft);
 }
-.tag.status.published { background: var(--accent-pale); color: var(--accent-dark); border-color: transparent; }
-.tag.status.review    { background: #FBEFD8; color: #8A6A1E; border-color: transparent; }
-html.dark .tag.status.review { background: #3A2E14; color: #E0C77A; }
-html.dark .tag.status.published { background: var(--accent-pale); color: var(--accent); }
 .tag.badge.q1 { border-color: var(--accent); color: var(--accent); }
 .tag.badge.q2 { border-color: var(--rule); color: var(--ink-soft); }
 .tag.link { border-color: var(--rule); color: var(--ink-soft); }
@@ -471,7 +470,7 @@ html.dark .tag.status.published { background: var(--accent-pale); color: var(--a
   display: grid;
   grid-template-columns: 1fr 1.2fr;
   gap: 40px;
-  align-items: start;
+  align-items: stretch;
   margin-top: 40px;
 }
 @media (max-width: 720px) {
@@ -484,50 +483,20 @@ html.dark .tag.status.published { background: var(--accent-pale); color: var(--a
   line-height: 1.8;
 }
 .contact-email-row { margin-top: 8px; }
+.contact-map { height: 100%; }
 .contact-map iframe {
   display: block;
   width: 100%;
-  height: 380px;
+  height: 100%;
+  min-height: 0;
   border: 1px solid var(--rule);
   border-radius: 6px;
 }
-.contact-map-label {
-  margin-top: 10px;
-  font-family: var(--font-mono);
-  font-size: 12px;
-  letter-spacing: 0.02em;
-  color: var(--ink-mute);
+@media (max-width: 720px) {
+  .contact-map iframe { height: 300px; }
 }
 
 /* ---------- Affiliations strip ---------- */
-#funders {
-  background: var(--bg);
-  border-top: 1px solid var(--rule);
-  padding: 32px 0;
-}
-#funders .inner {
-  max-width: var(--wrap-w);
-  margin: 0 auto;
-  padding: 0 var(--wrap-pad);
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-#funders p {
-  margin: 0;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--ink-mute);
-}
-.funder-text span {
-  font-size: 14px;
-  color: var(--ink-soft);
-}
-
 /* ---------- Dark footer ---------- */
 #footer {
   background: var(--footer-bg);

@@ -47,7 +47,7 @@
 <!-- ─────────── NAV (tab-style) ─────────── -->
 <header id="nav-bar">
   <nav class="nav-inner" aria-label="Section navigation">
-    <a href="#top"          class="nav-tab active" data-target="about">Home</a>
+    <a href="/"             class="nav-tab active" data-target="about">Home</a>
     <a href="#research"     class="nav-tab" data-target="research">Research</a>
     <a href="#publications" class="nav-tab" data-target="publications">Publications</a>
     <a href="#contact"      class="nav-tab" data-target="contact">Contact</a>
@@ -181,35 +181,17 @@
   <div class="section-inner">
     <h2 class="section-title">Publications</h2>
 
-    <ol class="pubs">
-      <li class="pub">
-        <div class="pub-year">2026</div>
-        <div class="pub-body">
-          <h3>Offline reinforcement learning with heterogeneous graph representation
-            and attention mechanisms for human–machine collaborative flexible
-            job-shop scheduling</h3>
-          <p class="pub-meta">
-            <strong>S. Shao</strong>, M. Cai, H. Qu, X. Tong, X. Gao.
-            <span class="venue">Neurocomputing</span>.
-          </p>
-          <div class="pub-tags">
-            <span class="tag status review">Under 2nd-round review</span>
-            <span class="tag badge q1">JCR Q1 · IF 6.7</span>
-          </div>
-        </div>
-      </li>
-
-      <li class="pub">
-        <div class="pub-year">2026</div>
-        <div class="pub-body">
-          <h3>A global feedback learning-based memetic algorithm for energy-aware
-            scheduling in collaborative heterogeneous flexible job shops</h3>
+    <div class="pub-group">
+      <h3 class="pub-group-title">Published</h3>
+      <ol class="pubs">
+        <li class="pub">
+          <h4 class="pub-title">A global feedback learning-based memetic algorithm for
+            energy-aware scheduling in collaborative heterogeneous flexible job shops</h4>
           <p class="pub-meta">
             H. Qu, <strong>S. Shao</strong>, Y. Xu, M. Cai, Y. Shi, X. Tong.
-            <span class="venue">Swarm and Evolutionary Computation</span>, 104, 102392.
+            <span class="venue">Swarm and Evolutionary Computation</span>, 104, 102392, 2026.
           </p>
           <div class="pub-tags">
-            <span class="tag status published">Published</span>
             <span class="tag badge q1">JCR Q1 · IF 9.6</span>
             <a class="tag link" href="https://doi.org/10.1016/j.swevo.2026.102392" target="_blank" rel="noopener">DOI ↗</a>
           </div>
@@ -235,41 +217,61 @@
               </figure>
             </div>
           </details>
-        </div>
-      </li>
+        </li>
+      </ol>
+    </div>
 
-      <li class="pub">
-        <div class="pub-year">2026</div>
-        <div class="pub-body">
-          <h3>Bias-guided policy search for human–robot collaborative flexible
-            job-shop scheduling via deep reinforcement learning</h3>
+    <div class="pub-group">
+      <h3 class="pub-group-title">In Revision</h3>
+      <ol class="pubs">
+        <li class="pub">
+          <h4 class="pub-title">Offline reinforcement learning with heterogeneous graph
+            representation and attention mechanisms for human–machine collaborative
+            flexible job-shop scheduling</h4>
+          <p class="pub-meta">
+            <strong>S. Shao</strong>, M. Cai, H. Qu, X. Tong, X. Gao.
+            <span class="venue">Neurocomputing</span>.
+          </p>
+          <div class="pub-tags">
+            <span class="tag badge q1">JCR Q1 · IF 6.7</span>
+          </div>
+        </li>
+      </ol>
+    </div>
+
+    <div class="pub-group">
+      <h3 class="pub-group-title">Conference</h3>
+      <ol class="pubs">
+        <li class="pub">
+          <h4 class="pub-title">AVS-ESA: A multi-objective optimization approach for
+            energy-efficient variable-speed flexible job shop scheduling</h4>
+          <p class="pub-meta">
+            <strong>S. Shao</strong>, Y. Xu, H. Qu, M. Cai, Y. Hu, X. Tong.
+            <span class="venue">2025 China Automation Congress (CAC)</span>, IEEE, pp. 6750–6755.
+          </p>
+          <div class="pub-tags">
+            <a class="tag link" href="https://ieeexplore.ieee.org/document/11486726" target="_blank" rel="noopener">IEEE ↗</a>
+          </div>
+        </li>
+      </ol>
+    </div>
+
+    <div class="pub-group">
+      <h3 class="pub-group-title">Under Review</h3>
+      <ol class="pubs">
+        <li class="pub">
+          <h4 class="pub-title">Bias-guided policy search for human–robot collaborative
+            flexible job-shop scheduling via deep reinforcement learning</h4>
           <p class="pub-meta">
             H. Qu, J. Ji, S. Xu, <strong>S. Shao</strong>, X. Sun, C. Han, Z. Sun, Y. Shi.
             <span class="venue">Journal of Systems Engineering and Electronics</span>.
           </p>
           <div class="pub-tags">
-            <span class="tag status review">Under review</span>
             <span class="tag badge q2">JCR Q2 · IF 2.6</span>
           </div>
-        </div>
-      </li>
-
-      <li class="pub">
-        <div class="pub-year">2025</div>
-        <div class="pub-body">
-          <h3>AVS-ESA: A multi-objective optimization approach for
-            energy-efficient variable-speed flexible job shop scheduling</h3>
-          <p class="pub-meta">
-            <strong>S. Shao</strong>, Y. Xu, H. Qu, M. Cai, Y. Hu, X. Tong.
-            <span class="venue">China Automation Congress (CAC)</span>, IEEE, pp. 6750–6755.
-          </p>
-          <div class="pub-tags">
-            <span class="tag status published">Published</span>
-            <a class="tag link" href="https://ieeexplore.ieee.org/document/11486726" target="_blank" rel="noopener">IEEE ↗</a>
-          </div>
-        </div>
-      </li>
-    </ol>
+        </li>
+      </ol>
+    </div>
   </div>
 </section>
 
@@ -303,23 +305,12 @@
           loading="lazy" referrerpolicy="no-referrer-when-downgrade"
           title="Beihang University · School of Automation Science and Electrical Engineering"
           allowfullscreen></iframe>
-        <div class="contact-map-label">Beihang University · School of Automation Science and Electrical Engineering</div>
       </div>
     </div>
   </div>
 </section>
 
 </main>
-
-<!-- ─────────── AFFILIATIONS STRIP ─────────── -->
-<div id="funders">
-  <div class="inner">
-    <p>Affiliated with</p>
-    <div class="funder-text">
-      <span>Beihang University&nbsp;&nbsp;·&nbsp;&nbsp;School of Automation Science and Electrical Engineering</span>
-    </div>
-  </div>
-</div>
 
 <!-- ─────────── DARK FOOTER ─────────── -->
 <footer id="footer">
