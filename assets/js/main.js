@@ -85,7 +85,7 @@
     var totalEl = document.getElementById('pub-total-count');
     var clearBtn = document.getElementById('pub-filter-clear');
 
-    var activeCats = {};
+    var activeCat = 'all';
     var activeYears = {};
 
     items.forEach(function (it) { it._text = it.textContent.toLowerCase(); });
@@ -104,11 +104,10 @@
 
     function apply() {
       var q = ((search && search.value) || '').trim().toLowerCase();
-      var catOn = anyActive(activeCats);
       var yearOn = anyActive(activeYears);
       var shown = 0;
       items.forEach(function (it) {
-        var okCat = !catOn || activeCats[it.getAttribute('data-cat')];
+        var okCat = (activeCat === 'all') || it.getAttribute('data-cat') === activeCat;
         var okYear = !yearOn || activeYears[it.getAttribute('data-year')];
         var okText = !q || it._text.indexOf(q) !== -1;
         var visible = okCat && okYear && okText;
@@ -119,25 +118,33 @@
       empty.style.display = shown ? 'none' : 'block';
     }
 
-    function bind(btns, store, attr) {
-      btns.forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          var v = btn.getAttribute(attr);
-          if (store[v]) { delete store[v]; btn.classList.remove('active'); }
-          else { store[v] = true; btn.classList.add('active'); }
-          apply();
-        });
+    // Category: single-select (radio), includes the "All" chip
+    catBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        catBtns.forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        activeCat = btn.getAttribute('data-cat');
+        apply();
       });
-    }
-    bind(catBtns, activeCats, 'data-cat');
-    bind(yearBtns, activeYears, 'data-year');
+    });
+
+    // Year: multi-select toggle
+    yearBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var v = btn.getAttribute('data-year');
+        if (activeYears[v]) { delete activeYears[v]; btn.classList.remove('active'); }
+        else { activeYears[v] = true; btn.classList.add('active'); }
+        apply();
+      });
+    });
 
     if (search) search.addEventListener('input', apply);
     if (clearBtn) {
       clearBtn.addEventListener('click', function () {
-        Object.keys(activeCats).forEach(function (k) { delete activeCats[k]; });
+        activeCat = 'all';
+        catBtns.forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-cat') === 'all'); });
         Object.keys(activeYears).forEach(function (k) { delete activeYears[k]; });
-        catBtns.concat(yearBtns).forEach(function (b) { b.classList.remove('active'); });
+        yearBtns.forEach(function (b) { b.classList.remove('active'); });
         if (search) search.value = '';
         apply();
       });
@@ -156,28 +163,67 @@
     });
   }
 
-  /* ─── Lightbox: click a figure to view full-screen ─ */
+  /* ─── Lightbox gallery: zoom + prev/next + caption ── */
   var lb = document.getElementById('lightbox');
   if (lb) {
     var lbImg = lb.querySelector('.lightbox-img');
-    var closeLb = function () {
+    var lbCap = lb.querySelector('.lightbox-caption');
+    var figs = Array.prototype.slice.call(document.querySelectorAll('.pub-figure'));
+    var lbImgs = figs.map(function (f) { return f.querySelector('img'); });
+    var cur = -1;
+
+    function capOf(i) {
+      var fc = figs[i] && figs[i].querySelector('figcaption');
+      return fc ? fc.textContent.trim() : (lbImgs[i] ? lbImgs[i].alt : '');
+    }
+    function show(i) {
+      if (!lbImgs.length) return;
+      if (i < 0) i = lbImgs.length - 1;
+      if (i >= lbImgs.length) i = 0;
+      cur = i;
+      var im = lbImgs[i];
+      lbImg.src = im.currentSrc || im.src;
+      lbImg.alt = im.alt || '';
+      lbCap.textContent = capOf(i);
+    }
+    function openLb(i) {
+      show(i);
+      lb.classList.add('open');
+      lb.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLb() {
       lb.classList.remove('open');
       lb.setAttribute('aria-hidden', 'true');
       lbImg.src = '';
+      lbCap.textContent = '';
       document.body.style.overflow = '';
-    };
-    document.querySelectorAll('.pub-figure img').forEach(function (img) {
-      img.addEventListener('click', function () {
-        lbImg.src = img.currentSrc || img.src;
-        lbImg.alt = img.alt || '';
-        lb.classList.add('open');
-        lb.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-      });
+    }
+
+    lbImgs.forEach(function (im, i) {
+      im.addEventListener('click', function () { openLb(i); });
     });
-    lb.addEventListener('click', closeLb);
+
+    var prevBtn = lb.querySelector('.lightbox-prev');
+    var nextBtn = lb.querySelector('.lightbox-next');
+    if (prevBtn) prevBtn.addEventListener('click', function (e) { e.stopPropagation(); show(cur - 1); });
+    if (nextBtn) nextBtn.addEventListener('click', function (e) { e.stopPropagation(); show(cur + 1); });
+
+    // Click image: left half → previous, right half → next
+    lbImg.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var r = lbImg.getBoundingClientRect();
+      show((e.clientX - r.left) > r.width / 2 ? cur + 1 : cur - 1);
+    });
+
+    // Click backdrop (not the figure/buttons) → close
+    lb.addEventListener('click', function (e) { if (e.target === lb) closeLb(); });
+
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && lb.classList.contains('open')) closeLb();
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLb();
+      else if (e.key === 'ArrowRight') show(cur + 1);
+      else if (e.key === 'ArrowLeft') show(cur - 1);
     });
   }
 

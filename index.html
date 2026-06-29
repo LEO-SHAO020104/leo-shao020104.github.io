@@ -141,7 +141,7 @@
 </section>
 
 <!-- ─────────── PUBLICATIONS ─────────── -->
-<section class="section band-tint" id="publications">
+<section class="section band-white" id="publications">
   <div class="section-inner">
     <h2 class="section-title">Publications</h2>
 
@@ -155,6 +155,7 @@
       <div class="filter-group">
         <div class="filter-group-label">Category</div>
         <div class="filter-chips" id="cat-filters">
+          <button class="filter-chip active" data-cat="all" type="button"><span class="filter-chip-label">All</span><span class="filter-chip-count">4</span></button>
           <button class="filter-chip" data-cat="published" type="button"><span class="filter-chip-label">Published</span><span class="filter-chip-count">1</span></button>
           <button class="filter-chip" data-cat="revision" type="button"><span class="filter-chip-label">In revision</span><span class="filter-chip-count">1</span></button>
           <button class="filter-chip" data-cat="conference" type="button"><span class="filter-chip-label">Conference</span><span class="filter-chip-count">1</span></button>
@@ -310,9 +311,14 @@
   </div>
 </footer>
 
-<!-- Lightbox overlay for figure zoom -->
+<!-- Lightbox gallery for figure zoom -->
 <div id="lightbox" class="lightbox" aria-hidden="true">
-  <img class="lightbox-img" src="" alt="" />
+  <button class="lightbox-nav lightbox-prev" type="button" aria-label="Previous figure">‹</button>
+  <figure class="lightbox-figure">
+    <img class="lightbox-img" src="" alt="" />
+    <figcaption class="lightbox-caption"></figcaption>
+  </figure>
+  <button class="lightbox-nav lightbox-next" type="button" aria-label="Next figure">›</button>
 </div>
 
 <script src="assets/js/main.js" defer></script>
