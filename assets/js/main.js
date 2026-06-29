@@ -1,5 +1,5 @@
 /* Shiliang Shao — site JS
-   Theme toggle  ·  email copy  ·  accent picker  ·  active-tab scroll spy */
+   Theme toggle  ·  email copy  ·  active-tab scroll spy */
 
 (function () {
   'use strict';
@@ -14,44 +14,6 @@
       try { localStorage.setItem('theme', isDark ? 'dark' : 'light'); } catch (e) {}
     });
   }
-
-  /* ─── Accent color picker ────────────────────────── */
-  var PALETTE = {
-    '#7DB544': ['#5A9A2E', '#A0D060', '#F0FDF4'],
-    '#3B82F6': ['#1D4ED8', '#93C5FD', '#EFF6FF'],
-    '#8B5CF6': ['#7C3AED', '#C4B5FD', '#F5F3FF'],
-    '#0891B2': ['#0E7490', '#67E8F9', '#ECFEFF'],
-    '#F59E0B': ['#D97706', '#FCD34D', '#FFFBEB']
-  };
-
-  function applyAccent(hex) {
-    if (!PALETTE[hex]) return;
-    var s = PALETTE[hex];
-    root.style.setProperty('--accent',       hex);
-    root.style.setProperty('--accent-dark',  s[0]);
-    root.style.setProperty('--accent-light', s[1]);
-    root.style.setProperty('--accent-pale',  s[2]);
-  }
-  function markActiveDot(hex) {
-    document.querySelectorAll('.accent-dot').forEach(function (dot) {
-      dot.classList.toggle('active', dot.getAttribute('data-accent') === hex);
-    });
-  }
-  var currentAccent = '#0891B2';
-  try {
-    var stored = localStorage.getItem('accent');
-    if (stored && PALETTE[stored]) currentAccent = stored;
-  } catch (e) {}
-  markActiveDot(currentAccent);
-
-  document.querySelectorAll('.accent-dot').forEach(function (dot) {
-    dot.addEventListener('click', function () {
-      var hex = dot.getAttribute('data-accent');
-      applyAccent(hex);
-      markActiveDot(hex);
-      try { localStorage.setItem('accent', hex); } catch (e) {}
-    });
-  });
 
   /* ─── Email copy buttons ─────────────────────────── */
   document.querySelectorAll('.email-copy-btn').forEach(function (btn) {

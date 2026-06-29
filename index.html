@@ -14,27 +14,12 @@
 
   <link rel="stylesheet" href="assets/css/site.css" />
 
-  <!-- Theme + accent bootstrap (no flash of unstyled content) -->
+  <!-- Theme bootstrap (no flash of unstyled content) -->
   <script>
     (function () {
       try {
         if (localStorage.getItem('theme') === 'dark') {
           document.documentElement.classList.add('dark');
-        }
-        var hex = localStorage.getItem('accent');
-        var palette = {
-          '#7DB544': ['#5A9A2E', '#A0D060', '#F0FDF4'],
-          '#3B82F6': ['#1D4ED8', '#93C5FD', '#EFF6FF'],
-          '#8B5CF6': ['#7C3AED', '#C4B5FD', '#F5F3FF'],
-          '#0891B2': ['#0E7490', '#67E8F9', '#ECFEFF'],
-          '#F59E0B': ['#D97706', '#FCD34D', '#FFFBEB']
-        };
-        if (hex && palette[hex]) {
-          var r = document.documentElement;
-          r.style.setProperty('--accent',       hex);
-          r.style.setProperty('--accent-dark',  palette[hex][0]);
-          r.style.setProperty('--accent-light', palette[hex][1]);
-          r.style.setProperty('--accent-pale',  palette[hex][2]);
         }
       } catch (e) {}
     })();
@@ -65,7 +50,6 @@
     <a href="#top"          class="nav-tab active" data-target="about">Home</a>
     <a href="#research"     class="nav-tab" data-target="research">Research</a>
     <a href="#publications" class="nav-tab" data-target="publications">Publications</a>
-    <a href="#news"         class="nav-tab" data-target="news">News</a>
     <a href="#awards"       class="nav-tab" data-target="awards">Awards</a>
     <a href="assets/pdf/Shiliang_Shao_CV.pdf" class="nav-tab" target="_blank" rel="noopener">CV ↗</a>
 
@@ -73,87 +57,9 @@
       <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle theme">
         <span class="sun">☀</span><span class="moon">☾</span>
       </button>
-      <div class="accent-picker" role="group" aria-label="Accent color">
-        <button class="accent-dot" data-accent="#7DB544" style="background:#7DB544" aria-label="Green"  title="Green"></button>
-        <button class="accent-dot" data-accent="#3B82F6" style="background:#3B82F6" aria-label="Blue"   title="Blue"></button>
-        <button class="accent-dot" data-accent="#8B5CF6" style="background:#8B5CF6" aria-label="Purple" title="Purple"></button>
-        <button class="accent-dot" data-accent="#0891B2" style="background:#0891B2" aria-label="Teal"   title="Teal"></button>
-        <button class="accent-dot" data-accent="#F59E0B" style="background:#F59E0B" aria-label="Amber"  title="Amber"></button>
-      </div>
     </div>
   </nav>
 </header>
-
-<!-- ─────────── HERO BANNER (themed SVG: scheduling Gantt chart) ─────────── -->
-<div id="banner" aria-hidden="true">
-  <svg class="banner-svg" viewBox="0 0 1600 320" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <linearGradient id="bg-grad" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%"   stop-color="var(--accent-pale)" />
-        <stop offset="100%" stop-color="var(--banner-bg-end)" />
-      </linearGradient>
-      <linearGradient id="track-grad" x1="0" y1="0" x2="1" y2="0">
-        <stop offset="0%"   stop-color="var(--accent)"       stop-opacity="0.95" />
-        <stop offset="100%" stop-color="var(--accent-light)" stop-opacity="0.80" />
-      </linearGradient>
-    </defs>
-
-    <rect width="1600" height="320" fill="url(#bg-grad)" />
-
-    <!-- Faint vertical grid (time axis) -->
-    <g stroke="var(--banner-grid)" stroke-width="1" opacity="0.55">
-      <line x1="200"  y1="40" x2="200"  y2="290"/>
-      <line x1="400"  y1="40" x2="400"  y2="290"/>
-      <line x1="600"  y1="40" x2="600"  y2="290"/>
-      <line x1="800"  y1="40" x2="800"  y2="290"/>
-      <line x1="1000" y1="40" x2="1000" y2="290"/>
-      <line x1="1200" y1="40" x2="1200" y2="290"/>
-      <line x1="1400" y1="40" x2="1400" y2="290"/>
-    </g>
-
-    <!-- Row labels -->
-    <g font-family="JetBrains Mono, monospace" font-size="13" fill="var(--banner-label)" opacity="0.75">
-      <text x="80" y="88">M1</text>
-      <text x="80" y="148">M2</text>
-      <text x="80" y="208">W1</text>
-      <text x="80" y="268">W2</text>
-    </g>
-
-    <!-- Gantt bars: operations on machines (M*) and workers (W*) -->
-    <g>
-      <rect x="180"  y="72"  width="160" height="32" rx="4" fill="url(#track-grad)"/>
-      <rect x="380"  y="72"  width="120" height="32" rx="4" fill="var(--banner-bar-muted)"/>
-      <rect x="540"  y="72"  width="220" height="32" rx="4" fill="url(#track-grad)" opacity="0.78"/>
-      <rect x="800"  y="72"  width="80"  height="32" rx="4" fill="var(--banner-bar-muted)"/>
-      <rect x="920"  y="72"  width="180" height="32" rx="4" fill="url(#track-grad)"/>
-      <rect x="1140" y="72"  width="120" height="32" rx="4" fill="var(--banner-bar-muted)"/>
-      <rect x="1300" y="72"  width="160" height="32" rx="4" fill="url(#track-grad)" opacity="0.78"/>
-
-      <rect x="180"  y="132" width="100" height="32" rx="4" fill="var(--banner-bar-muted)"/>
-      <rect x="320"  y="132" width="200" height="32" rx="4" fill="url(#track-grad)"/>
-      <rect x="560"  y="132" width="80"  height="32" rx="4" fill="var(--banner-bar-muted)"/>
-      <rect x="680"  y="132" width="160" height="32" rx="4" fill="url(#track-grad)" opacity="0.78"/>
-      <rect x="880"  y="132" width="120" height="32" rx="4" fill="var(--banner-bar-muted)"/>
-      <rect x="1040" y="132" width="240" height="32" rx="4" fill="url(#track-grad)"/>
-      <rect x="1320" y="132" width="100" height="32" rx="4" fill="var(--banner-bar-muted)"/>
-
-      <rect x="180"  y="192" width="140" height="32" rx="4" fill="url(#track-grad)" opacity="0.6"/>
-      <rect x="360"  y="192" width="100" height="32" rx="4" fill="var(--banner-bar-muted)"/>
-      <rect x="500"  y="192" width="220" height="32" rx="4" fill="url(#track-grad)" opacity="0.85"/>
-      <rect x="760"  y="192" width="120" height="32" rx="4" fill="var(--banner-bar-muted)"/>
-      <rect x="920"  y="192" width="180" height="32" rx="4" fill="url(#track-grad)" opacity="0.6"/>
-      <rect x="1140" y="192" width="80"  height="32" rx="4" fill="var(--banner-bar-muted)"/>
-      <rect x="1260" y="192" width="180" height="32" rx="4" fill="url(#track-grad)" opacity="0.85"/>
-
-      <rect x="200"  y="252" width="180" height="32" rx="4" fill="var(--banner-bar-muted)"/>
-      <rect x="420"  y="252" width="120" height="32" rx="4" fill="url(#track-grad)" opacity="0.85"/>
-      <rect x="580"  y="252" width="160" height="32" rx="4" fill="var(--banner-bar-muted)"/>
-      <rect x="780"  y="252" width="220" height="32" rx="4" fill="url(#track-grad)" opacity="0.6"/>
-      <rect x="1040" y="252" width="100" height="32" rx="4" fill="var(--banner-bar-muted)"/>
-      <rect x="1180" y="252" width="200" height="32" rx="4" fill="url(#track-grad)" opacity="0.85"/>
-    </g>
-  </svg>
-</div>
 
 <main id="top">
 
@@ -350,69 +256,8 @@
   </div>
 </section>
 
-<!-- ─────────── NEWS ─────────── -->
-<section class="section band-tint" id="news">
-  <div class="section-inner">
-    <h2 class="section-title">Featured news</h2>
-
-    <div class="news-list">
-
-      <article class="news-card">
-        <div class="news-card-head">
-          <span class="news-date">May 2026</span>
-        </div>
-        <h3 class="news-title">Paper accepted in Swarm and Evolutionary Computation</h3>
-        <p class="news-summary">
-          Our work on a global feedback learning-based memetic algorithm for
-          energy-aware scheduling in collaborative heterogeneous flexible job
-          shops is now published in <em>Swarm and Evolutionary Computation</em>
-          (JCR Q1).
-        </p>
-        <div class="news-tags"><span class="news-tag">Article</span></div>
-        <div class="news-readmore-wrap">
-          <a class="news-readmore-btn" href="https://doi.org/10.1016/j.swevo.2026.102392" target="_blank" rel="noopener">Read more</a>
-        </div>
-      </article>
-
-      <article class="news-card">
-        <div class="news-card-head">
-          <span class="news-date">November 2025</span>
-        </div>
-        <h3 class="news-title">Talk at the 2025 China Automation Congress</h3>
-        <p class="news-summary">
-          Presented AVS-ESA — a multi-objective optimization approach for
-          energy-efficient variable-speed flexible job-shop scheduling — at the
-          2025 China Automation Congress (CAC) in Wuxi.
-        </p>
-        <div class="news-tags"><span class="news-tag">Conference</span></div>
-        <div class="news-readmore-wrap">
-          <a class="news-readmore-btn" href="https://ieeexplore.ieee.org/document/11486726" target="_blank" rel="noopener">Read more</a>
-        </div>
-      </article>
-
-      <article class="news-card">
-        <div class="news-card-head">
-          <span class="news-date">September 2025</span>
-        </div>
-        <h3 class="news-title">SMC Corporation Scholarship</h3>
-        <p class="news-summary">
-          Awarded the SMC Corporation Scholarship at Beihang University,
-          recognizing contributions to pneumatic and intelligent manufacturing
-          systems research.
-        </p>
-        <div class="news-tags"><span class="news-tag">Award</span></div>
-      </article>
-
-    </div>
-
-    <p class="news-allnews">
-      <a class="btn-outline btn-allnews" href="#news">All news →</a>
-    </p>
-  </div>
-</section>
-
 <!-- ─────────── AWARDS ─────────── -->
-<section class="section band-white" id="awards">
+<section class="section band-tint" id="awards">
   <div class="section-inner">
     <h2 class="section-title">Selected honors</h2>
 
