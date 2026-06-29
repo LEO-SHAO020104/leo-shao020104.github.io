@@ -227,6 +227,12 @@
     });
   }
 
+  /* ─── Deter casual saving: block right-click & drag ─ */
+  document.addEventListener('contextmenu', function (e) { e.preventDefault(); });
+  document.addEventListener('dragstart', function (e) {
+    if (e.target && e.target.tagName === 'IMG') e.preventDefault();
+  });
+
   /* ─── Footer year ────────────────────────────────── */
   var y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
