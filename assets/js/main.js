@@ -209,6 +209,9 @@
     if (prevBtn) prevBtn.addEventListener('click', function (e) { e.stopPropagation(); show(cur - 1); });
     if (nextBtn) nextBtn.addEventListener('click', function (e) { e.stopPropagation(); show(cur + 1); });
 
+    var closeBtn = lb.querySelector('.lightbox-close');
+    if (closeBtn) closeBtn.addEventListener('click', function (e) { e.stopPropagation(); closeLb(); });
+
     // Click image: left half → previous, right half → next
     lbImg.addEventListener('click', function (e) {
       e.stopPropagation();

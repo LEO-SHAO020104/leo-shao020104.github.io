@@ -649,6 +649,25 @@ html.dark .pub-btn--code { background: #15301C; border-color: #2A4A33; color: #8
 .lightbox-nav:hover { background: rgba(255, 255, 255, 0.28); }
 .lightbox-prev { left: 24px; }
 .lightbox-next { right: 24px; }
+.lightbox-close {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  line-height: 1;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background .15s ease;
+}
+.lightbox-close:hover { background: rgba(255, 255, 255, 0.28); }
 @media (max-width: 600px) {
   .lightbox-nav { width: 40px; height: 40px; font-size: 24px; }
   .lightbox-prev { left: 8px; }
