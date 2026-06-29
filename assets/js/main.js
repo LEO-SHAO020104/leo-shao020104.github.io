@@ -73,6 +73,79 @@
     Object.values(sectionMap).forEach(function (sec) { io.observe(sec); });
   }
 
+  /* ─── Publications: live search + filter chips ───── */
+  (function () {
+    var list = document.getElementById('pub-list');
+    if (!list) return;
+    var items = Array.prototype.slice.call(list.querySelectorAll('.pub-item'));
+    var search = document.getElementById('pub-search');
+    var catBtns = Array.prototype.slice.call(document.querySelectorAll('#cat-filters .filter-chip'));
+    var yearBtns = Array.prototype.slice.call(document.querySelectorAll('#year-filters .filter-chip'));
+    var shownEl = document.getElementById('pub-shown-count');
+    var totalEl = document.getElementById('pub-total-count');
+    var clearBtn = document.getElementById('pub-filter-clear');
+
+    var activeCats = {};
+    var activeYears = {};
+
+    items.forEach(function (it) { it._text = it.textContent.toLowerCase(); });
+    if (totalEl) totalEl.textContent = items.length;
+
+    var empty = document.createElement('p');
+    empty.className = 'pub-empty';
+    empty.textContent = 'No publications match your filters.';
+    empty.style.display = 'none';
+    list.appendChild(empty);
+
+    function anyActive(obj) {
+      for (var k in obj) { if (obj[k]) return true; }
+      return false;
+    }
+
+    function apply() {
+      var q = ((search && search.value) || '').trim().toLowerCase();
+      var catOn = anyActive(activeCats);
+      var yearOn = anyActive(activeYears);
+      var shown = 0;
+      items.forEach(function (it) {
+        var okCat = !catOn || activeCats[it.getAttribute('data-cat')];
+        var okYear = !yearOn || activeYears[it.getAttribute('data-year')];
+        var okText = !q || it._text.indexOf(q) !== -1;
+        var visible = okCat && okYear && okText;
+        it.classList.toggle('is-hidden', !visible);
+        if (visible) shown++;
+      });
+      if (shownEl) shownEl.textContent = shown;
+      empty.style.display = shown ? 'none' : 'block';
+    }
+
+    function bind(btns, store, attr) {
+      btns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var v = btn.getAttribute(attr);
+          if (store[v]) { delete store[v]; btn.classList.remove('active'); }
+          else { store[v] = true; btn.classList.add('active'); }
+          apply();
+        });
+      });
+    }
+    bind(catBtns, activeCats, 'data-cat');
+    bind(yearBtns, activeYears, 'data-year');
+
+    if (search) search.addEventListener('input', apply);
+    if (clearBtn) {
+      clearBtn.addEventListener('click', function () {
+        Object.keys(activeCats).forEach(function (k) { delete activeCats[k]; });
+        Object.keys(activeYears).forEach(function (k) { delete activeYears[k]; });
+        catBtns.concat(yearBtns).forEach(function (b) { b.classList.remove('active'); });
+        if (search) search.value = '';
+        apply();
+      });
+    }
+
+    apply();
+  })();
+
   /* ─── Home tab: scroll to top, clean URL (no #hash) ─ */
   var homeTab = document.querySelector('.nav-tab[data-target="about"]');
   if (homeTab) {
