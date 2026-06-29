@@ -500,6 +500,8 @@ html.dark .cat-conference { background: #16233B; color: #9DBCF0; }
   font-style: italic;
   color: var(--ink-soft);
 }
+.pub-journal a { color: var(--accent); border-bottom: 0; }
+.pub-journal a:hover { color: var(--accent-dark); border-bottom: 1px solid var(--accent-dark); }
 .pub-actions {
   display: flex;
   flex-wrap: wrap;
