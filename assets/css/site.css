@@ -631,7 +631,7 @@ a.pub-btn:hover { border-color: var(--accent); color: var(--accent); }
 /* ---------- Contact ---------- */
 .contact-grid {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
+  grid-template-columns: 300px 1fr;
   gap: 40px;
   align-items: start;
   margin-top: 40px;
