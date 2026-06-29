@@ -219,14 +219,14 @@ html.dark .theme-toggle .sun  { display: none; }
 .photo-frame {
   position: relative;
   width: 100%;
-  aspect-ratio: 4 / 5;
   background: var(--bg-tint);
   border: 1px solid var(--rule);
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 8px 24px -12px rgba(0,0,0,0.18);
 }
-.photo-frame img { width: 100%; height: 100%; object-fit: cover; }
+.photo-frame img { width: 100%; height: auto; display: block; }
+.photo-frame.placeholder { aspect-ratio: 4 / 5; }
 .photo-frame.placeholder::before {
   content: "portrait.jpg";
   position: absolute;
