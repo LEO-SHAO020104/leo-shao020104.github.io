@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shiliang Shao – Beihang University</title>
+  <meta name="description" content="Shiliang Shao, M.Eng. student at Beihang University. Research on offline reinforcement learning, graph attention networks, combinatorial optimization, and intelligent manufacturing." />
+
+  <link rel="icon" href="data:," />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/site.css" />
+
+  <!-- Theme + accent bootstrap (no flash of unstyled content) -->
+  <script>
+    (function () {
+      try {
+        if (localStorage.getItem('theme') === 'dark') {
+          document.documentElement.classList.add('dark');
+        }
+        var hex = localStorage.getItem('accent');
+        var palette = {
+          '#7DB544': ['#5A9A2E', '#A0D060', '#F0FDF4'],
+          '#3B82F6': ['#1D4ED8', '#93C5FD', '#EFF6FF'],
+          '#8B5CF6': ['#7C3AED', '#C4B5FD', '#F5F3FF'],
+          '#0891B2': ['#0E7490', '#67E8F9', '#ECFEFF'],
+          '#F59E0B': ['#D97706', '#FCD34D', '#FFFBEB']
+        };
+        if (hex && palette[hex]) {
+          var r = document.documentElement;
+          r.style.setProperty('--accent',       hex);
+          r.style.setProperty('--accent-dark',  palette[hex][0]);
+          r.style.setProperty('--accent-light', palette[hex][1]);
+          r.style.setProperty('--accent-pale',  palette[hex][2]);
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Shiliang Shao",
+    "alternateName": "邵世梁",
+    "jobTitle": "M.Eng. Student",
+    "affiliation": {
+      "@type": "EducationalOrganization",
+      "name": "Beihang University",
+      "department": "School of Automation Science and Electrical Engineering"
+    },
+    "url": "https://shiliangshao.github.io/",
+    "email": "ssl020104@163.com"
+  }
+  </script>
+</head>
+<body data-page="home">
+
+<!-- ─────────── NAV (tab-style) ─────────── -->
+<header id="nav-bar">
+  <nav class="nav-inner" aria-label="Section navigation">
+    <a href="#top"          class="nav-tab active" data-target="about">Home</a>
+    <a href="#research"     class="nav-tab" data-target="research">Research</a>
+    <a href="#publications" class="nav-tab" data-target="publications">Publications</a>
+    <a href="#news"         class="nav-tab" data-target="news">News</a>
+    <a href="#awards"       class="nav-tab" data-target="awards">Awards</a>
+    <a href="assets/pdf/Shiliang_Shao_CV.pdf" class="nav-tab" target="_blank" rel="noopener">CV ↗</a>
+
+    <div class="nav-tools">
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle theme">
+        <span class="sun">☀</span><span class="moon">☾</span>
+      </button>
+      <div class="accent-picker" role="group" aria-label="Accent color">
+        <button class="accent-dot" data-accent="#7DB544" style="background:#7DB544" aria-label="Green"  title="Green"></button>
+        <button class="accent-dot" data-accent="#3B82F6" style="background:#3B82F6" aria-label="Blue"   title="Blue"></button>
+        <button class="accent-dot" data-accent="#8B5CF6" style="background:#8B5CF6" aria-label="Purple" title="Purple"></button>
+        <button class="accent-dot" data-accent="#0891B2" style="background:#0891B2" aria-label="Teal"   title="Teal"></button>
+        <button class="accent-dot" data-accent="#F59E0B" style="background:#F59E0B" aria-label="Amber"  title="Amber"></button>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- ─────────── HERO BANNER (themed SVG: scheduling Gantt chart) ─────────── -->
+<div id="banner" aria-hidden="true">
+  <svg class="banner-svg" viewBox="0 0 1600 320" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="bg-grad" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%"   stop-color="var(--accent-pale)" />
+        <stop offset="100%" stop-color="var(--banner-bg-end)" />
+      </linearGradient>
+      <linearGradient id="track-grad" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%"   stop-color="var(--accent)"       stop-opacity="0.95" />
+        <stop offset="100%" stop-color="var(--accent-light)" stop-opacity="0.80" />
+      </linearGradient>
+    </defs>
+
+    <rect width="1600" height="320" fill="url(#bg-grad)" />
+
+    <!-- Faint vertical grid (time axis) -->
+    <g stroke="var(--banner-grid)" stroke-width="1" opacity="0.55">
+      <line x1="200"  y1="40" x2="200"  y2="290"/>
+      <line x1="400"  y1="40" x2="400"  y2="290"/>
+      <line x1="600"  y1="40" x2="600"  y2="290"/>
+      <line x1="800"  y1="40" x2="800"  y2="290"/>
+      <line x1="1000" y1="40" x2="1000" y2="290"/>
+      <line x1="1200" y1="40" x2="1200" y2="290"/>
+      <line x1="1400" y1="40" x2="1400" y2="290"/>
+    </g>
+
+    <!-- Row labels -->
+    <g font-family="JetBrains Mono, monospace" font-size="13" fill="var(--banner-label)" opacity="0.75">
+      <text x="80" y="88">M1</text>
+      <text x="80" y="148">M2</text>
+      <text x="80" y="208">W1</text>
+      <text x="80" y="268">W2</text>
+    </g>
+
+    <!-- Gantt bars: operations on machines (M*) and workers (W*) -->
+    <g>
+      <rect x="180"  y="72"  width="160" height="32" rx="4" fill="url(#track-grad)"/>
+      <rect x="380"  y="72"  width="120" height="32" rx="4" fill="var(--banner-bar-muted)"/>
+      <rect x="540"  y="72"  width="220" height="32" rx="4" fill="url(#track-grad)" opacity="0.78"/>
+      <rect x="800"  y="72"  width="80"  height="32" rx="4" fill="var(--banner-bar-muted)"/>
+      <rect x="920"  y="72"  width="180" height="32" rx="4" fill="url(#track-grad)"/>
+      <rect x="1140" y="72"  width="120" height="32" rx="4" fill="var(--banner-bar-muted)"/>
+      <rect x="1300" y="72"  width="160" height="32" rx="4" fill="url(#track-grad)" opacity="0.78"/>
+
+      <rect x="180"  y="132" width="100" height="32" rx="4" fill="var(--banner-bar-muted)"/>
+      <rect x="320"  y="132" width="200" height="32" rx="4" fill="url(#track-grad)"/>
+      <rect x="560"  y="132" width="80"  height="32" rx="4" fill="var(--banner-bar-muted)"/>
+      <rect x="680"  y="132" width="160" height="32" rx="4" fill="url(#track-grad)" opacity="0.78"/>
+      <rect x="880"  y="132" width="120" height="32" rx="4" fill="var(--banner-bar-muted)"/>
+      <rect x="1040" y="132" width="240" height="32" rx="4" fill="url(#track-grad)"/>
+      <rect x="1320" y="132" width="100" height="32" rx="4" fill="var(--banner-bar-muted)"/>
+
+      <rect x="180"  y="192" width="140" height="32" rx="4" fill="url(#track-grad)" opacity="0.6"/>
+      <rect x="360"  y="192" width="100" height="32" rx="4" fill="var(--banner-bar-muted)"/>
+      <rect x="500"  y="192" width="220" height="32" rx="4" fill="url(#track-grad)" opacity="0.85"/>
+      <rect x="760"  y="192" width="120" height="32" rx="4" fill="var(--banner-bar-muted)"/>
+      <rect x="920"  y="192" width="180" height="32" rx="4" fill="url(#track-grad)" opacity="0.6"/>
+      <rect x="1140" y="192" width="80"  height="32" rx="4" fill="var(--banner-bar-muted)"/>
+      <rect x="1260" y="192" width="180" height="32" rx="4" fill="url(#track-grad)" opacity="0.85"/>
+
+      <rect x="200"  y="252" width="180" height="32" rx="4" fill="var(--banner-bar-muted)"/>
+      <rect x="420"  y="252" width="120" height="32" rx="4" fill="url(#track-grad)" opacity="0.85"/>
+      <rect x="580"  y="252" width="160" height="32" rx="4" fill="var(--banner-bar-muted)"/>
+      <rect x="780"  y="252" width="220" height="32" rx="4" fill="url(#track-grad)" opacity="0.6"/>
+      <rect x="1040" y="252" width="100" height="32" rx="4" fill="var(--banner-bar-muted)"/>
+      <rect x="1180" y="252" width="200" height="32" rx="4" fill="url(#track-grad)" opacity="0.85"/>
+    </g>
+  </svg>
+</div>
+
+<main id="top">
+
+<!-- ─────────── ABOUT ─────────── -->
+<section class="section first band-white" id="about">
+  <div class="section-inner">
+    <h1 class="section-title">About me</h1>
+
+    <div class="about-grid">
+
+      <figure class="about-photo">
+        <div class="photo-frame">
+          <img src="assets/images/portrait.jpg" alt="Shiliang Shao"
+               onerror="this.parentNode.classList.add('placeholder'); this.remove();" />
+        </div>
+        <figcaption>Shiliang Shao</figcaption>
+      </figure>
+
+      <div class="about-bio">
+        <h2>Shiliang Shao</h2>
+        <p class="subtitle"><strong>M.Eng. Student</strong>&nbsp;&nbsp;·&nbsp;&nbsp;<strong>Beihang University</strong></p>
+
+        <p>
+          I'm a second-year M.Eng. student in the School of Automation Science and
+          Electrical Engineering at Beihang University (北航), supervised by
+          <a href="#" rel="noopener" target="_blank">Prof. Maolin Cai</a> and
+          <a href="#" rel="noopener" target="_blank">Prof. Xiaomeng Tong</a>. Before
+          Beihang, I received my B.Eng. from the Civil Aviation University of China,
+          ranked 1<sup>st</sup> in my class and college.
+        </p>
+
+        <hr />
+
+        <p>
+          I'm broadly interested in learning-based methods for combinatorial
+          optimization. My current work focuses on <strong>offline reinforcement
+          learning</strong> with <strong>heterogeneous graph attention</strong>
+          representations for human–machine collaborative flexible job-shop
+          scheduling, and on <strong>LLM-assisted algorithm design</strong> for
+          intelligent manufacturing.
+        </p>
+
+        <p>
+          I use both behavioural and analytical evidence — benchmark experiments,
+          ablations, and cross-scale generalization tests — to advance algorithms
+          that travel from simulation to the shop floor. I'm also drawn to where
+          neural representation, structured priors, and search meet.
+        </p>
+
+        <hr />
+
+        <p>
+          When I'm not working, I play basketball and take photographs. I'm
+          applying to PhD programs for Fall 2027.
+        </p>
+
+        <div class="about-links">
+          <a class="btn-primary" href="assets/pdf/Shiliang_Shao_CV.pdf" target="_blank" rel="noopener">CV</a>
+          <a class="btn-outline" href="https://scholar.google.com/" rel="noopener" target="_blank">Google Scholar</a>
+          <a class="btn-outline" href="https://orcid.org/" rel="noopener" target="_blank">ORCID</a>
+          <a class="btn-outline" href="https://github.com/" rel="noopener" target="_blank">GitHub</a>
+          <button class="btn-outline email-copy-btn"
+                  data-email="ssl020104@163.com"
+                  data-original-label="Email"
+                  title="Copy email to clipboard"
+                  type="button">Email</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────── RESEARCH ─────────── -->
+<section class="section band-tint" id="research">
+  <div class="section-inner">
+    <h2 class="section-title">Research interests</h2>
+
+    <div class="interests">
+      <article class="interest">
+        <h3>Offline RL for combinatorial decision-making</h3>
+        <p>
+          Learning scheduling policies from logged data without on-policy interaction
+          — conservative value estimation, quantile-based uncertainty, and
+          Actor–Critic training for OOD-robust dispatching.
+        </p>
+      </article>
+
+      <article class="interest">
+        <h3>Graph attention &amp; heterogeneous representation</h3>
+        <p>
+          Treating jobs, machines, and workers as a typed graph; multi-attention
+          extractors that capture process order, resource contention, and skill
+          heterogeneity in a single representation.
+        </p>
+      </article>
+
+      <article class="interest">
+        <h3>LLM-assisted algorithm design</h3>
+        <p>
+          Using multiple LLMs cooperatively to evolve modular components of memetic
+          algorithms — encoding, decoding, operators, local search — guided by
+          multimodal prompting and error-feedback repair.
+        </p>
+      </article>
+
+      <article class="interest">
+        <h3>Intelligent manufacturing &amp; HRC</h3>
+        <p>
+          Modeling and optimization of flexible job-shop scheduling with realistic
+          features: worker-dependent setup times, parallel collaborative units,
+          and energy-aware variable-speed machines.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────── PUBLICATIONS ─────────── -->
+<section class="section band-white" id="publications">
+  <div class="section-inner">
+    <h2 class="section-title">Selected publications</h2>
+    <p class="section-lead">
+      <strong>Bold</strong> indicates my name. The complete list is in the
+      <a href="assets/pdf/Shiliang_Shao_CV.pdf" target="_blank" rel="noopener">CV</a>.
+    </p>
+
+    <ol class="pubs">
+      <li class="pub">
+        <div class="pub-year">2026</div>
+        <div class="pub-body">
+          <h3>Offline reinforcement learning with heterogeneous graph representation
+            and attention mechanisms for human–machine collaborative flexible
+            job-shop scheduling</h3>
+          <p class="pub-meta">
+            <strong>S. Shao</strong>, M. Cai, H. Qu, X. Tong, X. Gao.
+            <span class="venue">Neurocomputing</span>.
+          </p>
+          <div class="pub-tags">
+            <span class="tag status review">Under 2nd-round review</span>
+            <span class="tag badge q1">JCR Q1 · IF 6.7</span>
+          </div>
+        </div>
+      </li>
+
+      <li class="pub">
+        <div class="pub-year">2026</div>
+        <div class="pub-body">
+          <h3>A global feedback learning-based memetic algorithm for energy-aware
+            scheduling in collaborative heterogeneous flexible job shops</h3>
+          <p class="pub-meta">
+            H. Qu, <strong>S. Shao</strong>, Y. Xu, M. Cai, Y. Shi, X. Tong.
+            <span class="venue">Swarm and Evolutionary Computation</span>, 104, 102392.
+          </p>
+          <div class="pub-tags">
+            <span class="tag status published">Published</span>
+            <span class="tag badge q1">JCR Q1 · IF 9.6</span>
+            <a class="tag link" href="https://doi.org/10.1016/j.swevo.2026.102392" target="_blank" rel="noopener">DOI ↗</a>
+          </div>
+        </div>
+      </li>
+
+      <li class="pub">
+        <div class="pub-year">2026</div>
+        <div class="pub-body">
+          <h3>Bias-guided policy search for human–robot collaborative flexible
+            job-shop scheduling via deep reinforcement learning</h3>
+          <p class="pub-meta">
+            H. Qu, J. Ji, S. Xu, <strong>S. Shao</strong>, X. Sun, C. Han, Z. Sun, Y. Shi.
+            <span class="venue">Journal of Systems Engineering and Electronics</span>.
+          </p>
+          <div class="pub-tags">
+            <span class="tag status review">Under review</span>
+            <span class="tag badge q2">JCR Q2 · IF 2.6</span>
+          </div>
+        </div>
+      </li>
+
+      <li class="pub">
+        <div class="pub-year">2025</div>
+        <div class="pub-body">
+          <h3>AVS-ESA: A multi-objective optimization approach for
+            energy-efficient variable-speed flexible job shop scheduling</h3>
+          <p class="pub-meta">
+            <strong>S. Shao</strong>, Y. Xu, H. Qu, M. Cai, Y. Hu, X. Tong.
+            <span class="venue">China Automation Congress (CAC)</span>, IEEE, pp. 6750–6755.
+          </p>
+          <div class="pub-tags">
+            <span class="tag status published">Published</span>
+            <a class="tag link" href="https://ieeexplore.ieee.org/document/11486726" target="_blank" rel="noopener">IEEE ↗</a>
+          </div>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ─────────── NEWS ─────────── -->
+<section class="section band-tint" id="news">
+  <div class="section-inner">
+    <h2 class="section-title">Featured news</h2>
+
+    <div class="news-list">
+
+      <article class="news-card">
+        <div class="news-card-head">
+          <span class="news-date">May 2026</span>
+        </div>
+        <h3 class="news-title">Paper accepted in Swarm and Evolutionary Computation</h3>
+        <p class="news-summary">
+          Our work on a global feedback learning-based memetic algorithm for
+          energy-aware scheduling in collaborative heterogeneous flexible job
+          shops is now published in <em>Swarm and Evolutionary Computation</em>
+          (JCR Q1).
+        </p>
+        <div class="news-tags"><span class="news-tag">Article</span></div>
+        <div class="news-readmore-wrap">
+          <a class="news-readmore-btn" href="https://doi.org/10.1016/j.swevo.2026.102392" target="_blank" rel="noopener">Read more</a>
+        </div>
+      </article>
+
+      <article class="news-card">
+        <div class="news-card-head">
+          <span class="news-date">November 2025</span>
+        </div>
+        <h3 class="news-title">Talk at the 2025 China Automation Congress</h3>
+        <p class="news-summary">
+          Presented AVS-ESA — a multi-objective optimization approach for
+          energy-efficient variable-speed flexible job-shop scheduling — at the
+          2025 China Automation Congress (CAC) in Wuxi.
+        </p>
+        <div class="news-tags"><span class="news-tag">Conference</span></div>
+        <div class="news-readmore-wrap">
+          <a class="news-readmore-btn" href="https://ieeexplore.ieee.org/document/11486726" target="_blank" rel="noopener">Read more</a>
+        </div>
+      </article>
+
+      <article class="news-card">
+        <div class="news-card-head">
+          <span class="news-date">September 2025</span>
+        </div>
+        <h3 class="news-title">SMC Corporation Scholarship</h3>
+        <p class="news-summary">
+          Awarded the SMC Corporation Scholarship at Beihang University,
+          recognizing contributions to pneumatic and intelligent manufacturing
+          systems research.
+        </p>
+        <div class="news-tags"><span class="news-tag">Award</span></div>
+      </article>
+
+    </div>
+
+    <p class="news-allnews">
+      <a class="btn-outline btn-allnews" href="#news">All news →</a>
+    </p>
+  </div>
+</section>
+
+<!-- ─────────── AWARDS ─────────── -->
+<section class="section band-white" id="awards">
+  <div class="section-inner">
+    <h2 class="section-title">Selected honors</h2>
+
+    <div class="awards-grid">
+      <div class="awards-col">
+        <h4>National</h4>
+        <ul>
+          <li>National Scholarship (Top 0.5–1%), Ministry of Education of China, <strong>2021 · 2022 · 2023</strong></li>
+          <li>Second Prize, China Undergraduate Mathematical Contest in Modeling — Team Captain, 2022</li>
+          <li>Lead Investigator, National-Level Key-Support Innovation Project, 2022–2023</li>
+        </ul>
+      </div>
+
+      <div class="awards-col">
+        <h4>University &amp; provincial</h4>
+        <ul>
+          <li>SMC Corporation Scholarship, Beihang University, 2026</li>
+          <li>Hisense Scholarship — sole recipient among 279 in the college, 2025</li>
+          <li>First-Class Academic Scholarship (Top 20%), Beihang University, 2025</li>
+          <li>"Top Ten Outstanding Undergraduates" of CAUC — 10 / year university-wide, 2024</li>
+          <li>"May-Fourth Youth Leader" of CAUC — 15 / year, 2023 &amp; 2024</li>
+          <li>Outstanding Undergraduate of Tianjin Municipality — 1 / 375 in major, 2023</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="section-foot">
+      The full list of 25+ awards is in the
+      <a href="assets/pdf/Shiliang_Shao_CV.pdf" target="_blank" rel="noopener">CV</a>.
+    </p>
+  </div>
+</section>
+
+</main>
+
+<!-- ─────────── AFFILIATIONS STRIP ─────────── -->
+<div id="funders">
+  <div class="inner">
+    <p>Affiliated with</p>
+    <div class="funder-text">
+      <span>Beihang University&nbsp;&nbsp;·&nbsp;&nbsp;School of Automation Science and Electrical Engineering</span>
+    </div>
+  </div>
+</div>
+
+<!-- ─────────── DARK FOOTER ─────────── -->
+<footer id="footer">
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <p>
+        School of Automation Science and<br />
+        Electrical Engineering<br />
+        Beihang University
+      </p>
+      <p>
+        37 Xueyuan Road, Haidian District<br />
+        Beijing 100191, China
+      </p>
+      <p>
+        <a class="email-copy-btn" href="mailto:ssl020104@163.com"
+           data-email="ssl020104@163.com"
+           data-original-label="ssl020104@163.com">ssl020104@163.com</a>
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h5>Links</h5>
+      <ul>
+        <li><a href="https://ase.buaa.edu.cn/" target="_blank" rel="noopener">School of Automation · Beihang ↗</a></li>
+        <li><a href="https://www.buaa.edu.cn/" target="_blank" rel="noopener">Beihang University ↗</a></li>
+        <li><a href="https://www.cauc.edu.cn/" target="_blank" rel="noopener">Civil Aviation University of China ↗</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5>Elsewhere</h5>
+      <ul>
+        <li><a href="https://scholar.google.com/" target="_blank" rel="noopener">Google Scholar ↗</a></li>
+        <li><a href="https://orcid.org/" target="_blank" rel="noopener">ORCID ↗</a></li>
+        <li><a href="https://github.com/" target="_blank" rel="noopener">GitHub ↗</a></li>
+        <li><a href="assets/pdf/Shiliang_Shao_CV.pdf" target="_blank" rel="noopener">Curriculum Vitae ↗</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-credit">
+    <p>
+      Shiliang Shao&nbsp;&nbsp;·&nbsp;&nbsp;© 2025–<span id="year"></span>&nbsp;&nbsp;·&nbsp;&nbsp;All rights reserved&nbsp;&nbsp;·&nbsp;&nbsp;Last updated: Jun 2026
+    </p>
+  </div>
+</footer>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
