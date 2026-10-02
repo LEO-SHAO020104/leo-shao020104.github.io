@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shiliang Shao – Beihang University</title>
+  <meta name="description" content="Shiliang Shao, M.Eng. student at Beihang University. Research on offline reinforcement learning, graph attention networks, combinatorial optimization, and intelligent manufacturing." />
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/site.css" />
+
+  <!-- Theme bootstrap (no flash of unstyled content) -->
+  <script>
+    (function () {
+      try {
+        if (localStorage.getItem('theme') === 'dark') {
+          document.documentElement.classList.add('dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Shiliang Shao",
+    "alternateName": "邵世梁",
+    "jobTitle": "M.Eng. Student",
+    "affiliation": {
+      "@type": "EducationalOrganization",
+      "name": "Beihang University",
+      "department": "School of Automation Science and Electrical Engineering"
+    },
+    "url": "https://leo-shao020104.github.io/",
+    "email": "ssl020104@163.com"
+  }
+  </script>
+</head>
+<body data-page="home">
+
+<!-- ─────────── NAV (tab-style) ─────────── -->
+<header id="nav-bar">
+  <nav class="nav-inner" aria-label="Section navigation">
+    <a href="/"             class="nav-tab active" data-target="about">Home</a>
+    <a href="#publications" class="nav-tab" data-target="publications">Publications</a>
+    <a href="#contact"      class="nav-tab" data-target="contact">Contact</a>
+
+    <div class="nav-tools">
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle theme">
+        <span class="sun">☀</span><span class="moon">☾</span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+
+<!-- ─────────── ABOUT ─────────── -->
+<section class="section first band-white" id="about">
+  <div class="section-inner">
+    <h1 class="section-title">About me</h1>
+
+    <div class="about-grid">
+
+      <figure class="about-photo">
+        <div class="photo-frame">
+          <img src="assets/images/portrait.jpg" alt="Shiliang Shao"
+               onerror="this.parentNode.classList.add('placeholder'); this.remove();" />
+        </div>
+        <figcaption>Shiliang Shao</figcaption>
+      </figure>
+
+      <div class="about-bio">
+        <h2>Shiliang Shao <span class="name-cn">邵世梁</span></h2>
+        <p class="subtitle"><strong>M.Eng. Student, Mechanical Engineering</strong>&nbsp;&nbsp;·&nbsp;&nbsp;<strong>Beihang University</strong></p>
+
+        <p>
+          I'm an M.Eng. student in Mechanical Engineering at Beihang University
+          (BUAA, 北航) — a Project&nbsp;985 university in Beijing — graduating in
+          June 2027. I'm advised by
+          <a href="https://research.buaa.edu.cn/en/persons/maolin-cai/" rel="noopener" target="_blank">Prof. Maolin Cai</a> and
+          <a href="https://research.buaa.edu.cn/en/persons/xiaomeng-tong/" rel="noopener" target="_blank">Prof. Xiaomeng Tong</a>
+          in the
+          <a href="https://dept3.buaa.edu.cn/index.htm" rel="noopener" target="_blank">School of Automation Science and Electrical Engineering</a>.
+        </p>
+
+        <hr />
+
+        <p>
+          Before Beihang, I earned my B.Eng. in Electronic Information Engineering
+          from the <a href="https://www.cauc.edu.cn/" rel="noopener" target="_blank">Civil Aviation University of China (CAUC)</a>, Tianjin (2020–2024),
+          graduating <strong>ranked 1st in my department (1 / 375, GPA 89.58/100)</strong>
+          and earning recommended postgraduate admission (保研) to Beihang. My
+          graduate GPA is <strong>90.31/100 (3.80 / 4.00)</strong>, ranked 3 / 13 in my class.
+        </p>
+
+        <hr />
+
+        <dl class="skills-list">
+          <div><dt>Languages</dt><dd>Mandarin (native) · English (IELTS 6.5)</dd></div>
+          <div><dt>Programming</dt><dd>Python (primary), C, C++, MATLAB</dd></div>
+          <div><dt>ML &amp; optimization</dt><dd>PyTorch, scikit-learn, NumPy, SciPy, Pandas, OR-Tools</dd></div>
+          <div><dt>Engineering &amp; CAE</dt><dd>SolidWorks, Altair HyperMesh / Radioss, Simulink, Altium Designer, Multisim</dd></div>
+          <div><dt>Tools</dt><dd>Linux (Ubuntu), Git, ROS, LaTeX</dd></div>
+        </dl>
+
+        <hr />
+
+        <p>
+          When I'm not working, I play basketball and am a keen photographer. I look
+          forward to continuing toward a PhD after graduating in 2027.
+        </p>
+
+        <div class="about-links">
+          <a class="btn-primary" href="assets/pdf/Fall_2027_Shiliang_Shao_CV.pdf" target="_blank" rel="noopener">CV</a>
+          <a class="btn-outline" href="https://scholar.google.com.hk/citations?user=vXngaL8AAAAJ&hl=en" rel="noopener" target="_blank">Google Scholar</a>
+          <a class="btn-outline" href="https://github.com/LEO-SHAO020104" rel="noopener" target="_blank">GitHub</a>
+          <button class="btn-outline email-copy-btn"
+                  data-email="ssl020104@163.com"
+                  data-original-label="Email"
+                  title="Copy email to clipboard"
+                  type="button">Email</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────── PUBLICATIONS ─────────── -->
+<section class="section band-white" id="publications">
+  <div class="section-inner">
+    <h2 class="section-title">Publications</h2>
+
+    <div class="pub-search-bar">
+      <input id="pub-search" type="search" autocomplete="off"
+             aria-label="Search publications"
+             placeholder="Search title, authors, journal, year…" />
+    </div>
+
+    <div class="pub-filter-bar">
+      <div class="filter-row">
+        <span class="filter-label">Category</span>
+        <div class="filter-chips" id="cat-filters">
+          <button class="filter-chip active" data-cat="all" type="button"><span class="filter-chip-label">All</span><span class="filter-chip-count">5</span></button>
+          <button class="filter-chip" data-cat="published" type="button"><span class="filter-chip-label">Published</span><span class="filter-chip-count">3</span></button>
+          <button class="filter-chip" data-cat="conference" type="button"><span class="filter-chip-label">Conference</span><span class="filter-chip-count">1</span></button>
+          <button class="filter-chip" data-cat="review" type="button"><span class="filter-chip-label">Under review</span><span class="filter-chip-count">1</span></button>
+        </div>
+      </div>
+      <div class="filter-row">
+        <span class="filter-label">Year</span>
+        <div class="filter-chips year-chips" id="year-filters">
+          <button class="filter-chip year-chip" data-year="2026" type="button"><span class="filter-chip-label">2026</span><span class="filter-chip-count">4</span></button>
+          <button class="filter-chip year-chip" data-year="2025" type="button"><span class="filter-chip-label">2025</span><span class="filter-chip-count">1</span></button>
+        </div>
+        <div class="filter-summary">
+          <span class="filter-summary-text"><span id="pub-shown-count">5</span> / <span id="pub-total-count">5</span> shown</span>
+          <button class="filter-clear" id="pub-filter-clear" type="button">↺ Clear</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="pub-list">
+
+      <article class="pub-item" data-cat="published" data-year="2026">
+        <div class="pub-header">
+          <span class="pub-year">2026</span>
+          <span class="pub-cat cat-published">Accepted</span>
+          <span class="pub-note">JCR Q1 · IF 7.3</span>
+        </div>
+        <h3 class="pub-title">Offline reinforcement learning with heterogeneous graph representation and attention mechanisms for human–machine collaborative flexible job shop scheduling</h3>
+        <div class="pub-authors"><span class="me">S. Shao</span>; M. Cai; H. Qu; Q. Yu; X. Tong</div>
+        <div class="pub-journal"><a href="https://www.sciencedirect.com/journal/computers-and-industrial-engineering" target="_blank" rel="noopener">Computers &amp; Industrial Engineering</a> · Accepted for publication</div>
+      </article>
+
+      <article class="pub-item" data-cat="published" data-year="2026">
+        <div class="pub-header">
+          <span class="pub-year">2026</span>
+          <span class="pub-cat cat-published">Published</span>
+          <span class="pub-note">JCR Q1 · IF 9.6</span>
+        </div>
+        <h3 class="pub-title"><a href="https://doi.org/10.1016/j.swevo.2026.102392" target="_blank" rel="noopener">A global feedback learning-based memetic algorithm for energy-aware scheduling in collaborative heterogeneous flexible job shops</a></h3>
+        <div class="pub-authors">H. Qu; <span class="me">S. Shao</span>; Y. Xu; M. Cai; Y. Shi; X. Tong</div>
+        <div class="pub-journal">Swarm and Evolutionary Computation, 104, 102392</div>
+        <div class="pub-actions">
+          <a class="pub-btn pub-btn--view" href="https://doi.org/10.1016/j.swevo.2026.102392" target="_blank" rel="noopener">Link ↗</a>
+          <a class="pub-btn pub-btn--pdf" href="assets/pdf/2026_SWEVO.pdf" target="_blank" rel="noopener">PDF</a>
+        </div>
+
+        <details class="pub-extra" open>
+          <summary>Figures</summary>
+          <div class="pub-figures">
+            <figure class="pub-figure">
+              <img src="assets/images/fig1.jpg" alt="Fig. 1 — Layout of CHFJS" loading="lazy" />
+              <figcaption>Fig. 1 — Layout of CHFJS.</figcaption>
+            </figure>
+            <figure class="pub-figure">
+              <img src="assets/images/fig2.jpg" alt="Fig. 2 — GFLE framework" loading="lazy" />
+              <figcaption>Fig. 2 — Evolutionary process based on global feedback learning.</figcaption>
+            </figure>
+            <figure class="pub-figure">
+              <img src="assets/images/fig5.jpg" alt="Fig. 5 — Critical path analysis procedure" loading="lazy" />
+              <figcaption>Fig. 5 — Critical path analysis procedure.</figcaption>
+            </figure>
+            <figure class="pub-figure">
+              <img src="assets/images/fig6.jpg" alt="Fig. 6 — Example of the N1 structure" loading="lazy" />
+              <figcaption>Fig. 6 — Example diagram of the N1 structure.</figcaption>
+            </figure>
+          </div>
+        </details>
+      </article>
+
+      <article class="pub-item" data-cat="published" data-year="2026">
+        <div class="pub-header">
+          <span class="pub-year">2026</span>
+          <span class="pub-cat cat-published">Published</span>
+          <span class="pub-note">JCR Q1 · IF 5.1</span>
+        </div>
+        <h3 class="pub-title"><a href="https://doi.org/10.1016/j.cjme.2026.100374" target="_blank" rel="noopener">Collaborative Evolution Guided by Large Language Models for Heterogeneous Flexible Job-Shop Scheduling with Cooperative Units</a></h3>
+        <div class="pub-authors">H. Qu; X. Tong; <span class="me">S. Shao</span>; M. Cai; Y. Shi; Y. Ma; F. Ning</div>
+        <div class="pub-journal">Chinese Journal of Mechanical Engineering, 100374</div>
+        <div class="pub-actions">
+          <a class="pub-btn pub-btn--view" href="https://doi.org/10.1016/j.cjme.2026.100374" target="_blank" rel="noopener">Link ↗</a>
+          <a class="pub-btn pub-btn--pdf" href="assets/pdf/Collaborative%20Evolution%20Guided%20by%20Large%20Language%20Models%20for%20Heterogeneous%20Flexible%20Job-Shop%20Scheduling%20with%20Cooperative%20Units.pdf" target="_blank" rel="noopener">PDF</a>
+        </div>
+      </article>
+
+      <article class="pub-item" data-cat="review" data-year="2026">
+        <div class="pub-header">
+          <span class="pub-year">2026</span>
+          <span class="pub-cat cat-review">Under review</span>
+          <span class="pub-note">JCR Q2 · IF 2.6</span>
+        </div>
+        <h3 class="pub-title">Bias-guided policy search for human–robot collaborative flexible job-shop scheduling via deep reinforcement learning</h3>
+        <div class="pub-authors">H. Qu; J. Ji; S. Xu; <span class="me">S. Shao</span>; X. Sun; C. Han; Z. Sun; Y. Shi</div>
+        <div class="pub-journal">Journal of Systems Engineering and Electronics</div>
+      </article>
+
+      <article class="pub-item" data-cat="conference" data-year="2025">
+        <div class="pub-header">
+          <span class="pub-year">2025</span>
+          <span class="pub-cat cat-conference">Conference</span>
+          <span class="pub-note">Harbin, China</span>
+        </div>
+        <h3 class="pub-title"><a href="https://ieeexplore.ieee.org/document/11486726" target="_blank" rel="noopener">AVS-ESA: A multi-objective optimization approach for energy-efficient variable-speed flexible job shop scheduling</a></h3>
+        <div class="pub-authors"><span class="me">S. Shao</span>; Y. Xu; H. Qu; M. Cai; Y. Hu; X. Tong</div>
+        <div class="pub-journal">2025 China Automation Congress (CAC), IEEE, pp. 6750–6755</div>
+        <div class="pub-actions">
+          <a class="pub-btn pub-btn--view" href="https://ieeexplore.ieee.org/document/11486726" target="_blank" rel="noopener">Link ↗</a>
+          <a class="pub-btn pub-btn--pdf" href="assets/pdf/2025_CAC.pdf" target="_blank" rel="noopener">PDF</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─────────── CONTACT ─────────── -->
+<section class="section band-white" id="contact">
+  <div class="section-inner">
+    <h2 class="section-title">Contact</h2>
+
+    <div class="contact-grid">
+      <div class="contact-text">
+        <p>
+          Shiliang Shao<br />
+          School of Automation Science and Electrical Engineering<br />
+          Beihang University<br />
+          37 Xueyuan Road, Haidian District<br />
+          Beijing 100191, China
+        </p>
+      </div>
+
+      <div class="contact-map">
+        <iframe
+          src="https://www.google.com/maps?q=Beihang+University+37+Xueyuan+Road+Haidian+District+Beijing&output=embed"
+          width="100%" height="380" style="border:0;border-radius:6px;"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          title="Beihang University · School of Automation Science and Electrical Engineering"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ─────────── DARK FOOTER ─────────── -->
+<footer id="footer">
+  <div class="footer-credit">
+    <p>
+      Shiliang Shao&nbsp;&nbsp;·&nbsp;&nbsp;© 2025–<span id="year"></span>&nbsp;&nbsp;·&nbsp;&nbsp;All rights reserved&nbsp;&nbsp;·&nbsp;&nbsp;Last updated: Jun 2026
+    </p>
+  </div>
+</footer>
+
+<!-- Lightbox gallery for figure zoom -->
+<div id="lightbox" class="lightbox" aria-hidden="true">
+  <button class="lightbox-close" type="button" aria-label="Close">×</button>
+  <button class="lightbox-nav lightbox-prev" type="button" aria-label="Previous figure">‹</button>
+  <figure class="lightbox-figure">
+    <img class="lightbox-img" src="" alt="" />
+    <figcaption class="lightbox-caption"></figcaption>
+  </figure>
+  <button class="lightbox-nav lightbox-next" type="button" aria-label="Next figure">›</button>
+</div>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
